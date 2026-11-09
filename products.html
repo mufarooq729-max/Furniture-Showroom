@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Collection | Emberwood Furniture</title>
+    <link rel="icon" type="image/png" href="assets/images/emberwood-logo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="page-collection">
+    <header><a class="logo" href="index.html" aria-label="Emberwood Interior Design home"><img
+                src="assets/images/emberwood-logo.png" alt="Emberwood Interior Design"></a><button class="burger"
+            aria-label="Menu">☰</button>
+        <nav><a href="index.html" class="">Home</a><a href="products.html" class="on">Collection</a><a
+                href="showroom.html" class="">3D Showroom</a><a href="about.html" class="">About</a><a
+                href="contact.html" class="">Contact</a></nav>
+    </header>
+    <section class="wrap">
+        <h2>Collection</h2>
+        <div class="tabs" id="cats"></div>
+        <div class="grid" id="list"></div>
+    </section>
+    <footer>© 2026 Emberwood Furniture · Handmade in walnut, oak and mahogany</footer>
+    <script src="js/data.js"></script>
+    <script>
+        const categories = document.getElementById("cats");
+        const productList = document.getElementById("list");
+        categories.innerHTML = CATEGORIES.map((category, i) =>
+            `<button class="tab${i === 0 ? " on" : ""}" type="button" aria-pressed="${i === 0}">${category}</button>`
+        ).join("");
+
+        const showProducts = (category) => {
+            productList.innerHTML = PRODUCTS
+                .filter((product) => category === "All" || product.cat === category)
+                .map(card)
+                .join("");
+        };
+        showProducts("All");
+
+        categories.addEventListener("click", (event) => {
+            const tab = event.target.closest(".tab");
+            if (!tab || !categories.contains(tab)) return;
+            categories.querySelectorAll(".tab").forEach((item) => {
+                const active = item === tab;
+                item.classList.toggle("on", active);
+                item.setAttribute("aria-pressed", active);
+            });
+            showProducts(tab.textContent);
+        });
+
+    </script>
+</body>
+
+</html>

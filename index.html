@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Home | Emberwood Furniture</title>
+    <link rel="icon" type="image/png" href="assets/images/emberwood-logo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="page-home">
+    <header><a class="logo" href="index.html" aria-label="Emberwood Interior Design home"><img
+                src="assets/images/emberwood-logo.png" alt="Emberwood Interior Design"></a><button class="burger"
+            aria-label="Menu">☰</button>
+        <nav><a href="index.html" class="on">Home</a><a href="products.html" class="">Collection</a><a
+                href="showroom.html" class="">3D Showroom</a><a href="about.html" class="">About</a><a
+                href="contact.html" class="">Contact</a></nav>
+    </header>
+    <section class="hero"><img class="hero-image" src="assets/images/sofa%20(2).png" alt="">
+        <div>
+            <h1>Furniture you can turn around before you buy.</h1>
+            <p>Rotate, zoom and recolor every piece in our 3D showroom, then see the price and details.</p><a
+                class="btn" href="showroom.html">Enter the showroom</a> <a class="btn alt" href="products.html">Browse
+                collection</a>
+        </div>
+    </section>
+    <section class="wrap">
+        <h2>Featured pieces</h2>
+        <div class="grid" id="feat"></div>
+    </section>
+    <section class="wrap">
+        <h2>Made for everyday living</h2>
+        <div class="media"><img src="assets/images/Chair%20(1).png" alt="A comfortable upholstered accent chair">
+            <img src="assets/images/Table%20(4).png" alt="A handcrafted wood coffee table"></div>
+    </section>
+    <footer>© 2026 Emberwood Furniture · Handmade in walnut, oak and mahogany</footer>
+    <script src="js/data.js"></script>
+    <script>document.getElementById('feat').innerHTML = PRODUCTS.filter((product) => product.id === product.model).map(card).join('')</script>
+</body>
+
+</html>

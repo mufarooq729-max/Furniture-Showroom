@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Showroom | Emberwood Furniture</title>
+    <link rel="icon" type="image/png" href="assets/images/emberwood-logo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="page-showroom">
+    <header><a class="logo" href="index.html" aria-label="Emberwood Interior Design home"><img
+                src="assets/images/emberwood-logo.png" alt="Emberwood Interior Design"></a><button class="burger"
+            aria-label="Menu">☰</button>
+        <nav><a href="index.html" class="">Home</a><a href="products.html" class="">Collection</a><a
+                href="showroom.html" class="on">3D Showroom</a><a href="about.html" class="">About</a><a
+                href="contact.html" class="">Contact</a></nav>
+    </header>
+    <section class="wrap">
+        <h2>3D Showroom</h2>
+        <div class="tabs" id="tabs"></div>
+        <div class="split">
+            <div id="stage"><span class="hint">Drag to rotate · scroll or pinch to zoom</span>
+                <div class="ctl"><button id="zin" aria-label="Zoom in">+</button><button id="zout"
+                        aria-label="Zoom out">−</button><button id="spin" aria-label="Toggle spin">⟳</button></div>
+            </div>
+            <div class="info"><img class="product-photo" id="product-photo" alt="">
+                <small id="cat"></small>
+                <h2 id="name"></h2>
+                <div class="price" id="price"></div>
+                <p id="desc"></p>
+                <h3>Color &amp; material</h3>
+                <div class="sw" id="sw"></div>
+                <p id="optname"></p>
+                <ul class="spec" id="spec"></ul><a class="btn" href="contact.html">Request this piece</a>
+            </div>
+        </div>
+    </section>
+    <footer>© 2026 Emberwood Furniture · Handmade in walnut, oak and mahogany</footer>
+    <script src="js/data.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/showroom.js"></script>
+</body>
+
+</html>

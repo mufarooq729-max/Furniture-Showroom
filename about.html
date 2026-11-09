@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>About | Emberwood Furniture</title>
+    <link rel="icon" type="image/png" href="assets/images/emberwood-logo.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="page-about">
+    <header><a class="logo" href="index.html" aria-label="Emberwood Interior Design home"><img
+                src="assets/images/emberwood-logo.png" alt="Emberwood Interior Design"></a><button class="burger"
+            aria-label="Menu">☰</button>
+        <nav><a href="index.html" class="">Home</a><a href="products.html" class="">Collection</a><a
+                href="showroom.html" class="">3D Showroom</a><a href="about.html" class="on">About</a><a
+                href="contact.html" class="">Contact</a></nav>
+    </header>
+    <section class="wrap">
+        <h2>About Emberwood</h2>
+        <p style="max-width:62ch">We build tables, chairs, sofas and beds from solid walnut, oak and mahogany, finished
+            in deep browns and warm reds. Every piece in the 3D showroom matches the real item, so you can check colors
+            and proportions before you order.</p>
+    </section>
+    <section class="wrap">
+        <h2>Gallery</h2>
+        <div class="gallery" id="gallery"></div>
+    </section>
+    <dialog class="image-viewer" id="image-viewer" aria-label="Gallery image">
+        <button class="viewer-close" type="button" aria-label="Close image">×</button>
+        <img id="viewer-image" alt="">
+        <p id="viewer-caption"></p>
+    </dialog>
+    <footer>© 2026 Emberwood Furniture · Handmade in walnut, oak and mahogany</footer>
+    <script src="js/data.js"></script>
+    <script>
+        const gallery = document.getElementById("gallery");
+        const viewer = document.getElementById("image-viewer");
+        const viewerImage = document.getElementById("viewer-image");
+        const viewerCaption = document.getElementById("viewer-caption");
+
+        gallery.innerHTML = PRODUCTS.map((product) =>
+            `<button class="gallery-item" type="button" data-image="${product.img}" data-caption="${product.name}"><img src="${product.img}" alt="${product.name}" loading="lazy"><span>${product.name}</span></button>`
+        ).join("");
+
+        gallery.addEventListener("click", (event) => {
+            const item = event.target.closest(".gallery-item");
+            if (!item) return;
+            viewerImage.src = item.dataset.image;
+            viewerImage.alt = item.dataset.caption;
+            viewerCaption.textContent = item.dataset.caption;
+            viewer.showModal();
+        });
+        viewer.querySelector(".viewer-close").addEventListener("click", () => viewer.close());
+        viewer.addEventListener("click", (event) => {
+            if (event.target === viewer) viewer.close();
+        });
+    </script>
+</body>
+
+</html>
